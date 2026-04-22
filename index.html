@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colour Shade Generator Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geo&family=Iceland&family=Quantico:wght@400;700&family=Share+Tech&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="modal-overlay" id="info-modal">
+        <div class="modal-content">
+            <h2>HOW TO USE</h2>
+            <ul class="instructions">
+                <li><strong>1. PICK A COLOUR:</strong> Drag the marker on the custom chart to set your base colour.</li>
+                <li><strong>2. DEFINE STEP GAP:</strong> Use the slider to set the exact percentage difference between each adjacent shade.</li>
+                <li><strong>3. CHOOSE MODE:</strong> Generate both lighter/darker shades, just tints, or just dark shades.</li>
+                <li><strong>4. CLICK TO COPY:</strong> Tap any individual colour card to copy it, or use the big button at the bottom to copy the entire palette!</li>
+            </ul>
+            <button class="btn" id="close-modal">GOT IT!</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <h1>
+            <span class="highlight">C</span>olour <span class="highlight">S</span>hade
+            <span class="highlight">G</span>enerator
+        </h1>
+        <h3 class="subtitle">
+            Set your base colour, define the step gap, and choose your palette mode!
+        </h3>
+    </header>
+
+    <main class="main-body">
+        <section class="controls-area">
+            
+            <div class="top-controls">
+                <div class="picker-container">
+                    <div id="iro-picker"></div>
+                </div>
+
+                <div class="mode-container">
+                    <label class="picker-label">MODE:</label>
+                    <div class="custom-dropdown" id="mode-dropdown">
+                        <div class="dropdown-selected" id="dropdown-selected">
+                            <span>BOTH (LIGHT & DARK)</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div class="dropdown-options" id="dropdown-options">
+                            <div class="dropdown-option selected" data-value="both">BOTH (LIGHT & DARK)</div>
+                            <div class="dropdown-option" data-value="tints">TINTS ONLY (LIGHT)</div>
+                            <div class="dropdown-option" data-value="shades">SHADES ONLY (DARK)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <label for="step-slider" class="picker-label" id="step-label">STEP GAP: 15%</label>
+                    <input type="range" id="step-slider" min="1" max="100" value="15" class="range-slider">
+                </div>
+            </div>
+            
+            <button class="btn toggle-btn" id="view-toggle">VIEW: SLIDER</button>
+        </section>
+        
+        <hr class="divider" />
+        
+        <div class="palette-wrapper">
+            <section class="palette-output" id="palette-container">
+                </section>
+        </div>
+
+        <div class="action-footer">
+            <div class="custom-dropdown copy-dropdown" id="copy-dropdown">
+                <div class="dropdown-selected action-btn" id="copy-selected">
+                    <span id="copy-text">COPY ALL COLOURS!</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="dropdown-options" id="copy-options">
+                    <div class="dropdown-option" data-format="hex">HEX CODES (#FFF, #000)</div>
+                    <div class="dropdown-option" data-format="css">CSS FORMAT (--color-1: #FFF;)</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="credits">
+        <div class="credit-item">
+            <label>MADE BY M.HAIDADE</label>
+        </div>
+        <div class="credit-item">
+            <label>JANUARY 2026</label>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
